@@ -68,8 +68,14 @@ class GPACalculator {
                     </div>
                     <div class="form-group">
                         <label class="form-label">Credits</label>
-                        <input type="number" class="form-input course-credits" 
-                               placeholder="e.g., 3" min="0.5" max="10" step="0.5" required>
+                        <select class="form-select course-credits" required>
+                            <option value="">Select Credits</option>
+                            <option value="6.0">6.0</option>
+                            <option value="7.5">7.5</option>
+                            <option value="9.0">9.0</option>
+                            <option value="9.6">9.6</option>
+                            <option value="10.5">10.5</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Grade</label>
@@ -106,12 +112,6 @@ class GPACalculator {
 
             if (!credits || !grade) {
                 this.showNotification(`Please fill all fields for Course ${index + 1}`, 'error');
-                isValid = false;
-                return;
-            }
-
-            if (credits < 0.5 || credits > 10) {
-                this.showNotification(`Invalid credits for Course ${index + 1}. Must be between 0.5 and 10`, 'error');
                 isValid = false;
                 return;
             }
@@ -345,10 +345,8 @@ styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
 
 document.addEventListener('DOMContentLoaded', () => {
-    new GPACalculator();
-    
+    const calculator = new GPACalculator();
     setTimeout(() => {
-        const calculator = new GPACalculator();
         calculator.showNotification('Welcome to the GPA Calculator! Enter your number of courses to get started.', 'info');
     }, 1000);
 });
