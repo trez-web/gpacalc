@@ -68,14 +68,7 @@ class GPACalculator {
                     </div>
                     <div class="form-group">
                         <label class="form-label">Credits</label>
-                        <select class="form-select course-credits" required>
-                            <option value="">Select Credits</option>
-                            <option value="6.0">6.0</option>
-                            <option value="7.5">7.5</option>
-                            <option value="9.0">9.0</option>
-                            <option value="9.6">9.6</option>
-                            <option value="10.5">10.5</option>
-                        </select>
+                        <input type="number" class="form-input course-credits" placeholder="e.g. 9.0" min="0.5" step="0.5" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Grade</label>
